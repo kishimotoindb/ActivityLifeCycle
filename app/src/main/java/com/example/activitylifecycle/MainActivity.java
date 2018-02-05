@@ -6,6 +6,7 @@ import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 /*
  * 回调的时机：
@@ -38,17 +39,42 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i("xiong", "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textView = (TextView) findViewById(R.id.textView);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Log.i("xiong", "onStart()");
+
+        //*************************************************************while (true);
+
+        /*
+         * 题目：鉴定onStart()是在界面可见之前被调用，还是界面可见之后被调用？
+         *
+         * 测试：
+         * 1.如果onStart()在界面可见之前被调用，那么应该直接ANR，当前Activity的界面应该是看不到的
+         * 2.如果在之后被调用，界面首先会显示在屏幕上，然后ANR。
+         *
+         * 运行结果：
+         * 界面没有展示到屏幕上，并一直卡死在白屏状态。
+         *
+         * 结论：
+         * 在onStart()之后展示。
+         *
+         */
+
+        //while (true);
+
+        //*************************************************************while (true);
+
     }
 
     @Override
@@ -90,6 +116,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.i("xiong", "onStop()");
+
+        //*************************************************************while (true);
+
+        /*
+         * 题目：鉴定onStop()是在界面变为不可见之前被调用，还是之后被调用？
+         *
+         * 测试：
+         * 1.如果在界面变为不可见之前被调用，则界面会因为while卡死，一直可见。
+         * 2.如果在之后被调用，界面首先会从屏幕上消失，然后卡死
+         *
+         * 运行结果：
+         * 界面没有展示到屏幕上，并一直卡死在白屏状态。
+         *
+         * 结论：
+         * 在onStop()之前已经变为不可见。
+         *
+         */
+
+        //while (true);
+
+        //*************************************************************while (true);
+
     }
 
     @Override
