@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.activitylifecycle.launchmode.SingleInstanceActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="title"
+        android:textSize="20sp"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="wrap"/>
+
+    <Button
+        android:id="@+id/standard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="standard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/singleTop"/>
+
+    <Button
+        android:id="@+id/singleTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="singleTop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/standard"
+        app:layout_constraintRight_toLeftOf="@+id/singleTask"/>
+
+    <Button
+        android:id="@+id/singleTask"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="singleTask"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/singleTop"
+        app:layout_constraintRight_toLeftOf="@+id/singleInstance"/>
+
+    <Button
+        android:id="@+id/singleInstance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="singleInstance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/singleTask"
+        app:layout_constraintRight_toRightOf="parent"/>
+</android.support.constraint.ConstraintLayout>

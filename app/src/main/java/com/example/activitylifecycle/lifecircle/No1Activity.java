@@ -1,14 +1,14 @@
-package com.example.activitylifecycle;
+package com.example.activitylifecycle.lifecircle;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.activitylifecycle.R;
+
 /*
+ * 项目1：
+ *
  * 回调的时机：
  * 1.onRestoreInstanceState()
  * 1)配置改变重建Activity时（比如旋屏）
@@ -37,22 +37,67 @@ import android.widget.TextView;
  * 4.这种方式有什么好处，又有什么局限？
  */
 
-public class MainActivity extends AppCompatActivity {
+/*
+ * 项目2：鉴定onStart()是在界面可见之前被调用，还是界面可见之后被调用？
+ *
+ * 测试：
+ * 1.如果onStart()在界面可见之前被调用，那么应该直接ANR，当前Activity的界面应该是看不到的
+ * 2.如果在之后被调用，界面首先会显示在屏幕上，然后ANR。
+ *
+ * 运行结果：
+ * 界面没有展示到屏幕上，并一直卡死在白屏状态。
+ *
+ * 结论：
+ * 在onStart()之后展示。
+ *
+ */
+
+
+/*
+ * 项目3：鉴定onStop()是在界面变为不可见之前被调用，还是之后被调用？
+ *
+ * 测试：
+ * 1.如果在界面变为不可见之前被调用，则界面会因为while卡死，一直可见。
+ * 2.如果在之后被调用，界面首先会从屏幕上消失，然后卡死
+ *
+ * 运行结果：
+ * 界面没有展示到屏幕上，并一直卡死在白屏状态。
+ *
+ * 结论：
+ * 在onStop()之前已经变为不可见。
+ *
+ */
+
+/*
+ * 项目4：
+ *
+ *
+ */
+
+public class No1Activity extends BaseNoActivity {
 
     private TextView textView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        Log.i("xiong", "onCreate()");
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getActivityNo() {
+        return 1;
+    }
+
+    @Override
+    protected int getResId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView() {
+        super.initView();
+
         textView = (TextView) findViewById(R.id.textView);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("xiong", "onStart()");
 
         //*************************************************************while (true);
 
@@ -78,44 +123,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("xiong", "onResume()");
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.i("xiong", "onRestoreInstanceState()");
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onRestoreInstanceState(savedInstanceState, persistentState);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i("xiong", "onPause()");
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.i("xiong", "onSaveInstanceState(Bundle outState)");
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        Log.i("xiong", "onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState)");
-    }
-
-    @Override
     protected void onStop() {
         super.onStop();
-        Log.i("xiong", "onStop()");
 
         //*************************************************************while (true);
 
@@ -140,13 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i("xiong", "onDestroy()");
-    }
-
     public void click(View v) {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, No2Activity.class));
     }
 }

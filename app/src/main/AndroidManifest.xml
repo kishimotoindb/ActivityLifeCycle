@@ -9,7 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <!-- Activity生命周期 -->
+        <activity android:name=".lifecircle.No1Activity">
+        </activity>
+        <activity android:name=".lifecircle.No2Activity">
+        </activity>
+
+        <!-- Activity启动模式 -->
+        <activity
+            android:name=".launchmode.StandardActivity"
+            android:launchMode="standard">
+        </activity>
+        <activity
+            android:name=".launchmode.SingleTopActivity"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name=".launchmode.SingleTaskActivity"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name=".launchmode.SingleInstanceActivity"
+            android:launchMode="singleInstance">
+        </activity>
+        <activity android:name=".launchmode.LaunchModeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
