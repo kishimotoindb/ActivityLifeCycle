@@ -85,7 +85,7 @@ public class No1Activity extends BaseNoActivity {
 
     @Override
     protected int getResId() {
-        return R.layout.activity_main;
+        return R.layout.activity_no1;
     }
 
     @Override

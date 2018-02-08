@@ -17,6 +17,7 @@ public abstract class LaunchModeActivity extends AppCompatActivity implements Vi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch_mode);
+
         mTitle = (TextView) findViewById(R.id.title);
         findViewById(R.id.standard).setOnClickListener(this);
         findViewById(R.id.singleTop).setOnClickListener(this);

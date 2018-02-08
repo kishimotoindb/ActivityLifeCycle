@@ -20,6 +20,11 @@
         <activity
             android:name=".launchmode.StandardActivity"
             android:launchMode="standard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".launchmode.SingleTopActivity"
@@ -32,13 +37,6 @@
         <activity
             android:name=".launchmode.SingleInstanceActivity"
             android:launchMode="singleInstance">
-        </activity>
-        <activity android:name=".launchmode.LaunchModeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
     </application>
 

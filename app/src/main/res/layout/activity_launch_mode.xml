@@ -25,17 +25,17 @@
         android:id="@+id/standard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="standard"
+        android:text="Standard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/singleTop"/>
+        app:layout_constraintRight_toLeftOf="@+id/singleTop"/>
 
     <Button
         android:id="@+id/singleTop"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="singleTop"
+        android:text="Single Top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/standard"
         app:layout_constraintRight_toLeftOf="@+id/singleTask"/>
@@ -44,7 +44,7 @@
         android:id="@+id/singleTask"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="singleTask"
+        android:text="Single Task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/singleTop"
         app:layout_constraintRight_toLeftOf="@+id/singleInstance"/>
@@ -53,7 +53,7 @@
         android:id="@+id/singleInstance"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="singleInstance"
+        android:text="Single Instance"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/singleTask"
         app:layout_constraintRight_toRightOf="parent"/>
