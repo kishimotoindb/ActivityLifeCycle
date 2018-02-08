@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import com.example.activitylifecycle.R;
 
+/*
+ * adb shell dumpsys activity activities命令，打印出来的顺序，就是Activity在back stack中的顺序
+ *
+ */
+
 public abstract class LaunchModeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView mTitle;
