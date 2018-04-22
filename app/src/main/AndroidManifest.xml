@@ -12,6 +12,11 @@
 
         <!-- Activity生命周期 -->
         <activity android:name=".lifecircle.No1Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".lifecircle.No2Activity">
         </activity>
@@ -20,11 +25,11 @@
         <activity
             android:name=".launchmode.StandardActivity"
             android:launchMode="standard">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".launchmode.SingleTopActivity"

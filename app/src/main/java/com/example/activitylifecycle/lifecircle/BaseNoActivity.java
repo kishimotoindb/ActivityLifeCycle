@@ -20,6 +20,18 @@ public abstract class BaseNoActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.d(TAG, "onAttachedToWindow: ");
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.d(TAG, "onDetachedFromWindow: ");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, getActivityNo() + " onCreate()");
 
