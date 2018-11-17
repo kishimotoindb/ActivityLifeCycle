@@ -1,0 +1,2 @@
+1.Activity关闭的时候
+    no2.onPause() -> no1.onRestart() -> no1.onStart() -> no1.onResume() -> no2.onStop -> no2.onDestroy
